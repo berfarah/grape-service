@@ -19,7 +19,7 @@ module App
     end
 
     # Mount endpoints (from /api) eg:
-    # App::Resource
+    # mount App::Resource
 
     # Catches remaining paths for 404 error
     route(:any, '*path') { fail App::NotFound }
