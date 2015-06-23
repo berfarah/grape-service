@@ -16,6 +16,11 @@ module App
           @permitted_params ||= declared(params, include_missing: false)
         end
       end
+
+      logger Logger.new GrapeLogging::MultiIO.new(
+        STDOUT,
+        File.open(App.root.join('log', 'info.log'), 'a')
+      )
     end
   end
 end

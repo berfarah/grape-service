@@ -4,9 +4,10 @@ $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 
 require 'boot'
+require 'globals'
 
 Bundler.require :default, ENV['RACK_ENV']
 
-Dir[File.expand_path('../../api/*.rb', __FILE__)]. each { |f| require f }
+Dir[File.expand_path('../../api/*.rb', __FILE__)].each { |f| require f }
 
 require 'api'

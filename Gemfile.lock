@@ -15,17 +15,18 @@ GEM
       ice_nine (~> 0.11.0)
       thread_safe (~> 0.3, >= 0.3.1)
     builder (3.2.2)
+    celluloid (0.16.0)
+      timers (~> 4.0.0)
+    coderay (1.1.0)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     diff-lcs (1.2.5)
+    docile (1.1.5)
     equalizer (0.0.11)
-    fdoc (0.3.3)
-      json
-      json-schema (~> 1.1)
-      kramdown
-      thor
+    ffi (1.9.8)
+    formatador (0.2.5)
     grape (0.12.0)
       activesupport
       builder
@@ -36,26 +37,69 @@ GEM
       rack-accept
       rack-mount
       virtus (>= 1.0.0)
+    grape-entity (0.4.5)
+      activesupport
+      multi_json (>= 1.3.2)
+    grape-swagger (0.10.1)
+      grape (>= 0.8.0)
+      grape-entity
     grape_logging (1.1.0)
       grape
+    guard (2.12.6)
+      formatador (>= 0.2.4)
+      listen (~> 2.7)
+      lumberjack (~> 1.0)
+      nenv (~> 0.1)
+      notiffany (~> 0.0)
+      pry (>= 0.9.12)
+      shellany (~> 0.0)
+      thor (>= 0.18.1)
+    guard-bundler (2.1.0)
+      bundler (~> 1.0)
+      guard (~> 2.2)
+      guard-compat (~> 1.1)
+    guard-compat (1.2.1)
+    guard-rack (2.1.1)
+      ffi
+      guard (~> 2.3)
+      spoon
     hashie (3.4.2)
+    hitimes (1.2.2)
     i18n (0.7.0)
     ice_nine (0.11.1)
     json (1.8.3)
-    json-schema (1.2.1)
-    kramdown (1.7.0)
+    listen (2.10.1)
+      celluloid (~> 0.16.0)
+      rb-fsevent (>= 0.9.3)
+      rb-inotify (>= 0.9)
+    lumberjack (1.0.9)
+    method_source (0.8.2)
+    mime-types (2.6.1)
     minitest (5.7.0)
     multi_json (1.11.1)
     multi_xml (0.5.5)
+    nenv (0.2.0)
+    notiffany (0.0.6)
+      nenv (~> 0.1)
+      shellany (~> 0.0)
     parser (2.3.0.pre.2)
       ast (>= 1.1, < 3.0)
     powerpack (0.1.1)
+    pry (0.10.1)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
     rack (1.6.4)
     rack-accept (0.4.5)
       rack (>= 0.4)
     rack-mount (0.8.3)
       rack (>= 1.0.0)
+    rack-test (0.6.3)
+      rack (>= 1.0)
     rainbow (2.0.0)
+    rb-fsevent (0.9.5)
+    rb-inotify (0.9.5)
+      ffi (>= 0.5.0)
     rspec (3.3.0)
       rspec-core (~> 3.3.0)
       rspec-expectations (~> 3.3.0)
@@ -76,8 +120,19 @@ GEM
       rainbow (>= 1.99.1, < 3.0)
       ruby-progressbar (~> 1.4)
     ruby-progressbar (1.7.5)
+    shellany (0.0.1)
+    simplecov (0.10.0)
+      docile (~> 1.1.0)
+      json (~> 1.8)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.0)
+    slop (3.6.0)
+    spoon (0.0.4)
+      ffi
     thor (0.19.1)
     thread_safe (0.3.5)
+    timers (4.0.1)
+      hitimes
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     virtus (1.0.5)
@@ -91,8 +146,15 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport
-  fdoc
   grape
+  grape-swagger
   grape_logging
+  guard
+  guard-bundler
+  guard-rack
+  mime-types
+  rack
+  rack-test
   rspec
   rubocop
+  simplecov
