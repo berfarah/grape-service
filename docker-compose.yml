@@ -1,0 +1,10 @@
+web:
+  build: .
+  ports:
+  - "999:80"
+  volumes_from:
+  - data
+  environment:
+  - PASSENGER_APP_ENV=production
+data:
+  build: ./docker/data
